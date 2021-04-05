@@ -32,7 +32,7 @@ jobs:
             --template-url https://cf-templates-16lz765g5qw3s-us-east-1.s3.amazonaws.com/2021094f6k-eks.yml \
             --stack-name johann-eks-test \
             --capabilities CAPABILITY_NAMED_IAM \
-            --role-arn arn:aws:iam::396791034774:role/stacksets-exec-a467be543d6c29e8aa8fe06d7a8c0cc5 \
+            --role-arn arn:aws:iam::396791034774:role/eks-testing \
           #find errorof  
 
   cfn-lint:
