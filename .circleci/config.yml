@@ -20,10 +20,14 @@ jobs:
             ls -al
             echo '^^^That should look familiar^^^'
   build:
-    run:
-      command:  |
-        echo Running test
-        mkdir test-successful
+    docker:
+      - image: alphine:3.7
+    steps:
+      - run:
+          command: |
+            echo Running test
+            pip install cfn-lint && cfn-lint eks.yml
+
 
 workflows:
  version: 2
