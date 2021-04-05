@@ -26,11 +26,11 @@ jobs:
     steps:
       - aws-cli/setup
       - run:
-        command: |
-          echo Building CloudFormation Template
-          aws cloudformation create-stack
-          --template cfn/eks.yml
-          -- stack "johann-test"
+          command: |
+            echo Building CloudFormation Template
+            aws cloudformation create-stack
+            --template cfn/eks.yml
+            -- stack "johann-test"
 
 
   cfn-lint:
