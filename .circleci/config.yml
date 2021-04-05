@@ -28,9 +28,9 @@ jobs:
       - run:
           command: |
             echo Building CloudFormation Template
-            aws cloudformation create-stack 
-            --template-url https://cf-templates-16lz765g5qw3s-us-east-1.s3.amazonaws.com/2021094f6k-eks.yml
-            --stack-name johann-eks-test 
+            aws cloudformation create-stack \
+            --template-url https://cf-templates-16lz765g5qw3s-us-east-1.s3.amazonaws.com/2021094f6k-eks.yml \
+            --stack-name johann-eks-test \
           #find errorof 
 
   cfn-lint:
