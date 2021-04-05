@@ -53,6 +53,8 @@ workflows:
           requires:
             - Hello-World
       - cfn-launch
+          context:
+            - aws
       - cfn-lint:
           requires:
             - cfn-launch
