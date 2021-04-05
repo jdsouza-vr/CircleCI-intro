@@ -21,7 +21,7 @@ jobs:
             echo '^^^That should look familiar^^^'
   build:
     macos:
-      xcode: "11.3.0"
+      xcode: "12.4.0"
     steps:
       - run:
           command: |
