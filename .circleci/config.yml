@@ -20,8 +20,8 @@ jobs:
             ls -al
             echo '^^^That should look familiar^^^'
   build:
-    docker:
-      - image: alphine:3.7
+    macos:
+      xcode: "11.3.0"
     steps:
       - run:
           command: |
