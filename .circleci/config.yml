@@ -52,7 +52,7 @@ workflows:
       - I-Have-Code:
           requires:
             - Hello-World
-      - cfn-launch
+      - cfn-launch:
           context:
             - aws
       - cfn-lint:
