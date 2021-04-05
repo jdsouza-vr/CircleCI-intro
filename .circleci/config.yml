@@ -2,25 +2,25 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@1.4.0
 jobs:
-  Hello-World:
-    docker:
-      - image: alpine:3.7
-    steps:
-      - run:
-          name: Hello World
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
-  I-Have-Code:
-    docker:
-      - image: alpine:3.7
-    steps:
-      - checkout
-      - run:
-          name: Code Has Arrived
-          command: |
-            ls -al
-            echo '^^^That should look familiar^^^'
+  # Hello-World:
+  #   docker:
+  #     - image: alpine:3.7
+  #   steps:
+  #     - run:
+  #         name: Hello World
+  #         command: |
+  #           echo 'Hello World!'
+  #           echo 'This is the delivery pipeline'
+  # I-Have-Code:
+  #   docker:
+  #     - image: alpine:3.7
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Code Has Arrived
+  #         command: |
+  #           ls -al
+  #           echo '^^^That should look familiar^^^'
   cfn-launch:
     executor: aws-cli/default
     steps:
@@ -45,7 +45,6 @@ jobs:
             pip install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
           # check location of this image
 
-  taskcat:
 
 
 workflows:
