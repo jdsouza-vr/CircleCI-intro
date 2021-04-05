@@ -28,9 +28,9 @@ jobs:
       - run:
           command: |
             echo Building CloudFormation Template
-            aws cloudformation create-stack
-            --template cfn/eks.yml
-            --stack-name johann-eks-test
+            aws cloudformation create-stack \
+            --template cfn/eks.yml \
+            --stack-name johann-eks-test /
           #find errorof 
 
   cfn-lint:
@@ -42,6 +42,8 @@ jobs:
             echo Running test
             pip install cfn-lint && cfn-lint cfn/eks.yml  
           # check location of this image
+
+  taskcat:
 
 
 workflows:
