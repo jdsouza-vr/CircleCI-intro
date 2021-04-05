@@ -29,7 +29,8 @@ jobs:
         command: |
           echo Building CloudFormation Template
           aws cloudformation create-stack
-          --template
+          --template cfn/eks.yml
+          -- stack "johann-test"
 
 
   cfn-lint:
@@ -51,7 +52,11 @@ workflows:
       - I-Have-Code:
           requires:
             - Hello-World
-      - build
+      - cfn-launch
+      - cfn-lint:
+          requires:
+            - cfn-launch
+
 
     
     #  - Run-With-Node:
