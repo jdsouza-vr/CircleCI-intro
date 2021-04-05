@@ -20,8 +20,8 @@ jobs:
             ls -al
             echo '^^^That should look familiar^^^'
   build:
-    macos:
-      xcode: "12.4.0"
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
       - run:
           command: |
