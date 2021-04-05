@@ -30,8 +30,8 @@ jobs:
             echo Building CloudFormation Template
             aws cloudformation create-stack
             --template cfn/eks.yml
-            -- stack "johann-test"
-
+            -- stack-name "johann-eks-test"
+          #find errorof 
 
   cfn-lint:
     machine:
@@ -41,7 +41,7 @@ jobs:
           command: |
             echo Running test
             pip install cfn-lint && cfn-lint cfn/eks.yml  
-          # has to exist on machine image
+          # check location of this image
 
 
 workflows:
