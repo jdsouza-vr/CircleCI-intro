@@ -17,13 +17,13 @@ jobs:
           
 
   cfn-lint:
-    machine:
+    docker:
       image: ubuntu-2004:202010-01
     steps:
       - run:
           command: |
             echo Running test
-            pip install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
+            pip install cfn-lint && cfn-lint eks.yml  
           # check location of this image
 
 
