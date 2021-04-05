@@ -30,7 +30,7 @@ jobs:
             echo Building CloudFormation Template
             aws cloudformation create-stack
             --template cfn/eks.yml
-            -- stack-name "johann-eks-test"
+            --stack-name "johann-eks-test"
           #find errorof 
 
   cfn-lint:
