@@ -18,7 +18,8 @@ jobs:
 
   cfn-lint:
     docker:
-      image: ubuntu-2004:202010-01
+      image: ubuntu:latest
+      name: eks-testing
     steps:
       - run:
           command: |
