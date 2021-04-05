@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@1.4.0
 jobs:
   Hello-World:
     docker:
@@ -19,14 +21,26 @@ jobs:
           command: |
             ls -al
             echo '^^^That should look familiar^^^'
-  build:
+  cfn-launch:
+    executor: aws-cli/default
+    steps:
+      - aws-cli/setup
+      - run:
+        command: |
+          echo Building CloudFormation Template
+          aws cloudformation create-stack
+          --template
+
+
+  cfn-lint:
     machine:
       image: ubuntu-2004:202010-01
     steps:
       - run:
           command: |
             echo Running test
-            pip install cfn-lint && cfn-lint cfn/eks.yml
+            pip install cfn-lint && cfn-lint cfn/eks.yml  
+          # has to exist on machine image
 
 
 workflows:
@@ -38,6 +52,7 @@ workflows:
           requires:
             - Hello-World
       - build
+
     
     #  - Run-With-Node:
     #      requires:

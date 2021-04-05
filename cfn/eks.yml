@@ -13,10 +13,6 @@ Parameters:
     Description: tag of the docker image to deploy in this stack
     Default: latest
 
-# Mappings:
-#   Details:
-#     CommonVariables:
-#       VPCID: vpc-0b8ad3ab815f525e8
 
 Resources:
 
