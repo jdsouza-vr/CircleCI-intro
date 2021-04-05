@@ -26,7 +26,7 @@ jobs:
       - run:
           command: |
             echo Running test
-            pip install cfn-lint && cfn-lint eks.yml
+            pip install cfn-lint && cfn-lint cfn/eks.yml
 
 
 workflows:
