@@ -33,7 +33,7 @@ jobs:
       - checkout
       - run:
           command: |
-            pip install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
+            pip install cfn-lint && cfn-lint cfn/eks.yml  
 
 
 
