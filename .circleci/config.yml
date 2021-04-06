@@ -32,7 +32,9 @@ jobs:
       - run:
           command: |
             echo Running test
-            apt-get install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
+            apt install python3
+            apt-get install python3-pip
+            pip3 install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
           # check location of this image
 
 
