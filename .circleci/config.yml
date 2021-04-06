@@ -2,15 +2,6 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@1.4.0
 
-executors:
-  my-exec:
-    docker:
-      - image: ubuntu:latest
-        name: eks-testing
-        auth:
-          username: dsouzaj98
-          password: $DOCKERHUB_PASSWORD
-
 jobs:
   cfn-launch:
     executor: aws-cli/default
@@ -25,7 +16,6 @@ jobs:
             --capabilities CAPABILITY_NAMED_IAM \
             --role-arn arn:aws:iam::396791034774:role/eks-testing \
           
-
   cfn-lint:
     docker:
       - image: cimg/python:3.9
@@ -37,29 +27,29 @@ jobs:
             pip install cfn-lint && cfn-lint cfn/eks.yml  
             echo Test Successful
 
-
-
-
-            
-            
-# machine:
-#       image: ubuntu-2004:202101-01            
-# echo Running test
-# pip install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
+  taskcat:
+    docker:
+      - image: cimg/python:3.9
+    steps:
+      - checkout
+      - run:
+          command: |
+            echo Running Test
+            pip install taskcat && taskcat cfn/eks.yml  
+            echo Test Successful
          
-
-
-
 workflows:
  version: 2
- Example_Workflow:
+ EKS_Workflow:
    jobs:
       - cfn-launch:
           context:
             - aws
       - cfn-lint:
-          context: 
-            - docker
           requires:
             - cfn-launch
+      - taskcat:
+          requires:
+            - cfn-launch
+
 #change to cfn-launch requires cfn-lint
