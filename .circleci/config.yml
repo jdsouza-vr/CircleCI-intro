@@ -27,14 +27,13 @@ jobs:
           
 
   cfn-lint:
-    executor: my-exec
+    machine:
+      image: ubuntu-2004:202101-01
     steps:
       - run:
           command: |
             echo Running test
-            apt install python3
-            apt-get install python3-pip
-            pip3 install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
+            pip install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
           # check location of this image
 
 
