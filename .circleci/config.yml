@@ -18,13 +18,15 @@ jobs:
 
   cfn-lint:
     docker:
-      image: ubuntu:latest
       name: eks-testing
+      auth:
+        username: dsouzaj98
+        password: $DOCKERHUB_PASSWORD
     steps:
       - run:
           command: |
             echo Running test
-            pip install cfn-lint && cfn-lint eks.yml  
+            pip install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
           # check location of this image
 
 
@@ -37,6 +39,8 @@ workflows:
           context:
             - aws
       - cfn-lint:
+          context: 
+            - docker
           requires:
             - cfn-launch
 #change to cfn-launch requires cfn-lint
