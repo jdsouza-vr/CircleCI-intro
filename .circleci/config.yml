@@ -32,7 +32,7 @@ jobs:
       - run:
           command: |
             echo Running test
-            yum install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
+            apt-get install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
           # check location of this image
 
 
