@@ -33,7 +33,9 @@ jobs:
       - checkout
       - run:
           command: |
+            echo Running Test
             pip install cfn-lint && cfn-lint cfn/eks.yml  
+            echo Test Successful
 
 
 
