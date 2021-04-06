@@ -27,14 +27,24 @@ jobs:
           
 
   cfn-lint:
-    machine:
-      image: ubuntu-2004:202101-01
+    docker:
+      - image: cimg/python:3.9
     steps:
+      - checkout
       - run:
           command: |
-            echo Running test
             pip install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
-          # check location of this image
+
+
+
+
+            
+            
+# machine:
+#       image: ubuntu-2004:202101-01            
+# echo Running test
+# pip install cfn-lint && cfn-lint ~/Documents/vertical_relevance/CircleCI-intro/cfn/eks.yml  
+         
 
 
 
