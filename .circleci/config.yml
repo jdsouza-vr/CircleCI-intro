@@ -35,7 +35,9 @@ jobs:
       - run:
           command: |
             echo Running Test
-            pip install taskcat && taskcat test run  
+            pip install taskcat 
+            echo Installed taskcat
+            taskcat test run -y
             echo Test Successful
          
 workflows:
