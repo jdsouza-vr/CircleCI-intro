@@ -35,7 +35,7 @@ jobs:
       - run:
           command: |
             echo Running Test
-            pip install taskcat && taskcat test cfn/eks.yml  
+            pip install taskcat && taskcat test run  
             echo Test Successful
          
 workflows:
