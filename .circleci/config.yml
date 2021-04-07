@@ -37,7 +37,7 @@ jobs:
             echo Running Test
             pip install taskcat 
             echo Installed taskcat
-            taskcat test run -y
+            taskcat test run 
             echo Test Successful
          
 workflows:
@@ -51,6 +51,8 @@ workflows:
           requires:
             - cfn-launch
       - taskcat:
+          context: 
+            - aws
           requires:
             - cfn-launch
 

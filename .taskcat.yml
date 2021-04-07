@@ -2,9 +2,7 @@ project:
   name: johann-eks-bucket
   regions:
   - us-east-1
-  s3_bucket: johann-eks-bucket
 
 tests:
   default:
     template: cfn/eks.yml
-    s3_bucket: johann-eks-bucket
